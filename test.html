@@ -3,39 +3,29 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Ch4_2_1.html</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <style>
-    .blue {
-      color: blue;
-    }
-
-    .red {
-      color: red;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ch5_4n.html</title>
+  <link rel="stylesheet" href="./assets/css/jquery.mobile-1.4.5.min.css">
+  <script src="./assets/js/jquery-2.1.4.min.js"></script>
+  <script src="./assets/js/jquery.mobile-1.4.5.min.js"></script>
 </head>
 
 <body>
-  <h2>建立第一個jQuery程式</h2>
-  <ol id="list">
-    <li>Java Applet</li>
-    <li>JavaScript</li>
-    <li>VBScript</li>
-    <li>DHTML</li>
-  </ol>
-  <script>
-    $(document).ready(() => {
-      let list = $('#list')
-      list.addClass('red')
-      $('#list li:last').addClass('blue')
-      list.click((e) => {
-        list.fadeToggle();
-        list.fadeToggle("slow");
-        list.fadeToggle(3000);
-      })
-    })
-  </script>
+  <div data-role="page">
+    <div data-role="header">
+      <h1>jQuery Mobile</h1>
+    </div>
+    <div data-role="main" class="ui-content">
+      <p>jQuery Mobile是基於jQuery建立的框架，
+        支援iOS、Android、BlackBerry、bada、
+        Windows Phone、webOS、Symbian和
+        MeeGo的Mobile網頁應用程式開發。
+      </p>
+    </div>
+    <div data-role="footer">
+      <h1>製作者: 陳會安</h1>
+    </div>
+  </div>
 </body>
 
 </html>
