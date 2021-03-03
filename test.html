@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Ch4_2_1.html</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <style>
+    .blue {
+      color: blue;
+    }
+
+    .red {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>建立第一個jQuery程式</h2>
+  <ol id="list">
+    <li>Java Applet</li>
+    <li>JavaScript</li>
+    <li>VBScript</li>
+    <li>DHTML</li>
+  </ol>
+  <script>
+    $(document).ready(() => {
+      let list = $('#list')
+      list.addClass('red')
+      $('#list li:last').addClass('blue')
+      list.click((e) => {
+        list.fadeToggle();
+        list.fadeToggle("slow");
+        list.fadeToggle(3000);
+      })
+    })
+  </script>
+</body>
+
+</html>
