@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>主頁</title>
+  <link rel="stylesheet" href="./assets/css/jquery.mobile-1.4.5.min.css">
+  <script src="./assets/js/jquery-2.1.4.min.js"></script>
+  <script src="./assets/js/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+  <div data-role="page" id="home">
+    <header data-role="header">
+      <h1>亞馬遜</h1>
+    </header>
+    <main data-role="main" class="ui-content">
+      <p>
+        亞馬遜公司（英語：Amazon.com,Inc.）是一家總部位於美國西雅圖的跨國電子商務企業，業務起始於線上書店，不久之後商品走向多元化。
+        目前是全球最大的網際網路線上零售商之一，也是美國《財富》雜誌2016年評選的全球最大500家公司的排行榜中的第44名。亞馬遜公司在2017年的財富500強企業里列第8位。
+      </p>
+
+    </main>
+    <footer data-role="footer">
+      <nav data-role="navbar" data-position="fixed">
+        <ul>
+          <li><a href="#home" data-icon="home" class="ui-btn-active ui-state-persist">主頁</a></li>
+          <li><a href="/second.html" data-icon="bars">歷史沿革</a></li>
+          <li><a href="#map" data-icon="location">地圖</a></li>
+          <li><a href="https://zh.wikipedia.org/wiki/%E4%BA%9E%E9%A6%AC%E9%81%9C%E5%85%AC%E5%8F%B8" data-icon="navigation">亞馬遜-WIKI</a></li>
+          <li><a href="#about" data-icon="info">關於我</a></li>
+        </ul>
+      </nav>
+    </footer>
+  </div>
+
+  <div data-role="page" id="about">
+    <header data-role="header" data-add-back-btn="true" data-back-btn-text="上一頁">
+      <h1>關於我</h1>
+    </header>
+    <main data-role="main" class="ui-content">
+      <p>
+        Hellow world!
+      </p>
+    </main>
+    <footer data-role="footer">
+      <nav data-role="navbar" data-position="fixed">
+        <ul>
+          <li><a href="#home" data-icon="home">主頁</a></li>
+          <li><a href="/second.html" data-icon="bars">歷史沿革</a></li>
+          <li><a href="#map" data-icon="location">地圖</a></li>
+          <li><a href="https://zh.wikipedia.org/wiki/%E4%BA%9E%E9%A6%AC%E9%81%9C%E5%85%AC%E5%8F%B8" data-icon="navigation">亞馬遜公司-WIKI</a></li>
+          <li><a href="#about" data-icon="info" class="ui-btn-active ui-state-persist">關於我</a></li>
+        </ul>
+      </nav>
+    </footer>
+  </div>
+
+  <div data-role="page" data-dialog="true" id="map">
+    <header data-role="header" style="text-align: center;">
+      <h1>地圖</h1>
+    </header>
+    <main data-role="main" class="ui-content">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d172139.4161662446!2d-122.48214752341369!3d47.61294318323425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5490102c93e83355%3A0x102565466944d59a!2z576O5ZyL6I-v55ub6aCT6KW_6ZuF5ZyW!5e0!3m2!1szh-TW!2stw!4v1615356817606!5m2!1szh-TW!2stw"
+        style="border:0;" allowfullscreen="true" loading="lazy" width="400" height="400"></iframe>
+    </main>
+  </div>
+</body>
+
+</html>
