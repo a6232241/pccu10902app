@@ -11,6 +11,7 @@
 </head>
 
 <body>
+  <!-- 歷史 -->
   <div data-role="page" id="history">
     <header data-role="header" data-add-back-btn="true" data-back-btn-text="上一頁">
       <h1>歷史沿革</h1>
@@ -23,14 +24,14 @@
         這與貝佐斯希望公司成為世界之最的期望不謀而合。[5]自從2000年起，亞馬遜公司的品牌標誌中出現了一條從字母「A」指向字母「Z」的微笑箭頭，象徵著其旗下的商品包羅萬象。
       </p>
     </main>
-    <footer data-role="footer">
+    <footer data-role="footer" data-id="main" data-position="fixed">
       <nav data-role="navbar" data-position="fixed">
         <ul>
           <li><a href="#home" data-icon="home">主頁</a></li>
           <li><a href="#history" data-ajax="false" data-icon="bars" class="ui-btn-active ui-state-persist">歷史沿革</a></li>
           <li><a href="#map" data-icon="location">地圖</a></li>
-          <li><a href="https://zh.wikipedia.org/wiki/%E4%BA%9E%E9%A6%AC%E9%81%9C%E5%85%AC%E5%8F%B8" data-icon="navigation">亞馬遜公司-WIKI</a></li>
-          <li><a href="#about" data-icon="info">關於我</a></li>
+          <li><a href="#list" data-icon="bullets">清單</a></li>
+          <li><a href="#about" data-icon="info" data-transition="slide" data-direction="reverse">關於我</a></li>
         </ul>
       </nav>
     </footer>

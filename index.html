@@ -11,6 +11,25 @@
 </head>
 
 <body>
+
+  <!-- 登入 -->
+  <div data-role="page" id="login">
+    <header data-role="header">
+      <h1>登入</h1>
+    </header>
+    <main data-role="main" class="ui-content" style="text-align: center">
+      <div style="width: 100%; height: auto;">
+        <img src='./assets/img/amazonIcon.png' alt='amazonIcon' style='width:100%' />
+      </div>
+      <p>歡迎使用 Amazon APP，要登入嗎?</p>
+      <a href="#home" class="ui-btn ui-btn-inline  ui-corner-all ui-shadow ui-btn-icon-right ui-icon-check">確定</a>
+      <a href="#" class="ui-btn ui-btn-inline  ui-corner-all ui-shadow ui-btn-icon-right ui-icon-delete">不用</a>
+    </main>
+    <footer data-role="footer" data-id="main-footer">
+    </footer>
+  </div>
+
+  <!-- 主頁 -->
   <div data-role="page" id="home">
     <header data-role="header">
       <h1>亞馬遜</h1>
@@ -20,21 +39,63 @@
         亞馬遜公司（英語：Amazon.com,Inc.）是一家總部位於美國西雅圖的跨國電子商務企業，業務起始於線上書店，不久之後商品走向多元化。
         目前是全球最大的網際網路線上零售商之一，也是美國《財富》雜誌2016年評選的全球最大500家公司的排行榜中的第44名。亞馬遜公司在2017年的財富500強企業里列第8位。
       </p>
-
     </main>
-    <footer data-role="footer">
+    <footer data-role="footer" data-id="main" data-position="fixed">
       <nav data-role="navbar" data-position="fixed">
         <ul>
           <li><a href="#home" data-icon="home" class="ui-btn-active ui-state-persist">主頁</a></li>
           <li><a href="/second.html" data-icon="bars">歷史沿革</a></li>
           <li><a href="#map" data-icon="location">地圖</a></li>
-          <li><a href="https://zh.wikipedia.org/wiki/%E4%BA%9E%E9%A6%AC%E9%81%9C%E5%85%AC%E5%8F%B8" data-icon="navigation">亞馬遜-WIKI</a></li>
-          <li><a href="#about" data-icon="info">關於我</a></li>
+          <li><a href="#list" data-icon="bullets">清單</a></li>
+          <li><a href="#about" data-icon="info" data-transition="slide" data-direction="reverse">關於我</a></li>
         </ul>
       </nav>
     </footer>
   </div>
 
+  <!-- 清單 -->
+  <div data-role="page" id="list">
+    <header data-role="header" data-add-back-btn="true" data-back-btn-text="上一頁" id='mylist'>
+      <h1>清單</h1>
+      <div data-role="popup" id="jqm" class="ui-content">
+        <p>資料來源：維基百科</p>
+      </div>
+      <a href="#jqm" data-rel="popup" class="ui-btn ui-icon-info ui-btn-inline ui-btn-icon-right ui-btn-right">關於</a>
+    </header>
+    <main data-role="main" class="ui-content">
+      <div data-role="collapsible">
+        <h2>歷史</h2>
+        <p>1994年，貝佐斯十分渴望參與到當時爆發的網際網路商務行業中，因而在其所稱的「遺憾最小化框架」（以自己的努力實踐擊退日後可能萌發的後悔之情）的驅動下，他在華盛頓州貝爾維尤的車庫中一手創立了這家公司。</p>
+      </div>
+      <div data-role="collapsible">
+        <h2>服務</h2>
+        <p>
+          目前，亞馬遜的零售商品線涵蓋了圖書、音像製品、軟體、消費電子產品、家用電器、廚具、食品、玩具、母嬰用品、化妝品、日化用品、運動用具、服裝鞋帽、首飾等類目。1999年3月，亞馬遜公司曾在Amazon.com發布線上的拍賣功能，然而這項功能在遭遇與eBay的競爭後宣告失敗。9月，亞馬遜發布了固定價格出售商品的zShop。翌年11月，亞馬遜拍賣與zShop整合為亞馬遜集市，為人們出售二手商品提供了平台。
+        </p>
+      </div>
+      <div data-role="collapsible">
+        <h2>網站</h2>
+        <p>
+          亞馬遜公司的網站主域名Amazon.com在2008年全年的訪客數量至少達到6.15億，是當年沃爾瑪超市門店顧客數量的兩倍。[36]為應對極高的訪問流量，尤其是在聖誕季等購物節假日下的極端情況，亞馬遜在其網站伺服器的投資建設上不遺餘力。
+          亞馬遜網站全球分布（淺色為僅售虛擬商品）
+          除了主域名之外，亞馬遜還在世界上多個國家建立了本地化的網站，在商品、定價等方面存在差異化。
+        </p>
+      </div>
+    </main>
+    <footer data-role="footer" data-id="main" data-position="fixed">
+      <nav data-role="navbar" data-position="fixed">
+        <ul>
+          <li><a href="#home" data-icon="home">主頁</a></li>
+          <li><a href="/second.html" data-icon="bars">歷史沿革</a></li>
+          <li><a href="#map" data-icon="location">地圖</a></li>
+          <li><a href="#list" data-icon="bullets" class="ui-btn-active ui-state-persist">清單</a></li>
+          <li><a href="#about" data-icon="info" data-transition="slide" data-direction="reverse">關於我</a></li>
+        </ul>
+      </nav>
+    </footer>
+  </div>
+
+  <!-- 關於我 -->
   <div data-role="page" id="about">
     <header data-role="header" data-add-back-btn="true" data-back-btn-text="上一頁">
       <h1>關於我</h1>
@@ -44,19 +105,21 @@
         Hellow world!
       </p>
     </main>
-    <footer data-role="footer">
+    <footer data-role="footer" data-id="main" data-position="fixed">
       <nav data-role="navbar" data-position="fixed">
         <ul>
           <li><a href="#home" data-icon="home">主頁</a></li>
           <li><a href="/second.html" data-icon="bars">歷史沿革</a></li>
           <li><a href="#map" data-icon="location">地圖</a></li>
-          <li><a href="https://zh.wikipedia.org/wiki/%E4%BA%9E%E9%A6%AC%E9%81%9C%E5%85%AC%E5%8F%B8" data-icon="navigation">亞馬遜公司-WIKI</a></li>
-          <li><a href="#about" data-icon="info" class="ui-btn-active ui-state-persist">關於我</a></li>
+          <li><a href="#list" data-icon="bullets">清單</a></li>
+          <li><a href="#about" data-icon="info" data-transition="slide" data-direction="reverse"
+              class="ui-btn-active ui-state-persist">關於我</a></li>
         </ul>
       </nav>
     </footer>
   </div>
 
+  <!-- 地圖 -->
   <div data-role="page" data-dialog="true" id="map">
     <header data-role="header" style="text-align: center;">
       <h1>地圖</h1>
