@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>主頁</title>
+    <link rel="stylesheet" href="./assets/css/jquery.mobile-1.4.5.min.css">
+    <script src="./assets/js/jquery-2.1.4.min.js"></script>
+    <script src="./assets/js/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+
+    <script>
+        $(document).ready(() => {
+            $.getJSON("./assets/json/moive.data.2020.json", function (data) {
+                let moiveArr = data.map((val, index) => {
+                    let {
+                        title,
+                        alt,
+                        image,
+                        rating,
+                        original_title,
+                        year
+                    } = val;
+                    let img = $('<img>')
+                        .attr('src', image)
+                    let span = $('<span>')
+                        .addClass('ui-li-count')
+                        .text(rating)
+                        .css({
+                            'right': "4em"
+                        })
+                    let a = $('<a>')
+                        .attr("href", alt)
+                        .append(img)
+                        .css({
+                            "padding-left": '60px'
+                        })
+                    let h1 = $('<h1>').text(title)
+                    let p = $('<p>').text(`${original_title}-${year}`)
+                    a.append(h1).append(p)
+                    let i = $('<li>')
+                        .append(a)
+                        .append(span)
+                    $('#mylist').append(i)
+                    $('#mylist').listview('refresh')
+                })
+            });
+        })
+    </script>
+
+    <!-- 主頁 -->
+    <div data-role="page" id="home">
+        <header data-role="header">
+            <h1>豆瓣電影</h1>
+        </header>
+        <main data-role="main" class="ui-content">
+            <ul data-role="listview">
+                <li data-role="collapsible" data-iconpos="right">
+                    <h1>Top 20</h1>
+                    <ol data-role="listview" data-inset="true" data-count-theme="b" id="mylist">
+                    </ol>
+                </li>
+            </ul>
+        </main>
+        <footer data-role="footer" data-id="main" data-position="fixed">
+
+        </footer>
+    </div>
+
+</body>
+
+</html>
