@@ -14,33 +14,44 @@
 
     <script>
         $(document).ready(() => {
-            $.getJSON("./assets/json/moive.data.2020.json", function (data) {
-                let moiveArr = data.map((val, index) => {
+            $.get('http://140.137.41.79:3000/top250', (data) => {
+
+                const {
+                    subjects
+                } = data;
+
+                let moiveArr = subjects.map((val, index) => {
+
                     let {
                         title,
                         alt,
-                        image,
-                        rating,
+                        images: {
+                            small
+                        },
+                        rating: {
+                            average
+                        },
                         original_title,
                         year
                     } = val;
+
                     let img = $('<img>')
-                        .attr('src', image)
+                        .attr('src', `https://images.weserv.nl/?url=${small.substr(8)}`)
+                    let h1 = $('<h1>').text(title)
+                    let p = $('<p>').text(`${original_title}-${year}`)
+                    let a = $('<a>')
+                        .attr("href", alt)
+                        .css({
+                            "padding-left": '60px'
+                        }).append(img, h1, p)
+
                     let span = $('<span>')
                         .addClass('ui-li-count')
-                        .text(rating)
+                        .text(average)
                         .css({
                             'right': "4em"
                         })
-                    let a = $('<a>')
-                        .attr("href", alt)
-                        .append(img)
-                        .css({
-                            "padding-left": '60px'
-                        })
-                    let h1 = $('<h1>').text(title)
-                    let p = $('<p>').text(`${original_title}-${year}`)
-                    a.append(h1).append(p)
+
                     let i = $('<li>')
                         .append(a)
                         .append(span)
@@ -60,7 +71,7 @@
             <ul data-role="listview">
                 <li data-role="collapsible" data-iconpos="right">
                     <h1>Top 20</h1>
-                    <ol data-role="listview" data-inset="true" data-count-theme="b" id="mylist">
+                    <ol data-role="listview" data-inset="true" data-count-theme="b" id="mylist" data-filter="true">
                     </ol>
                 </li>
             </ul>

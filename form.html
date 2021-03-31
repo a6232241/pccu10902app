@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>主頁</title>
+    <link rel="stylesheet" href="./assets/css/jquery.mobile-1.4.5.min.css">
+    <script src="./assets/js/jquery-2.1.4.min.js"></script>
+    <script src="./assets/js/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+
+    <script>
+        $(document).ready(() => {
+
+        })
+    </script>
+
+    <!-- 主頁 -->
+    <div data-role="page" id="home">
+        <header data-role="header">
+            <h1>餐點計算機</h1>
+        </header>
+        <main data-role="main" class="ui-content">
+
+            <form id="form8_5_1" name="form8_5_1">
+                <div class="ui-field-contain">
+                    <label for="height">身高(公分):</label>
+                    <input type="range" name="height" id="height" value="170" min="100" max="220" />
+                </div>
+                <div class="ui-field-contain">
+                    <label for="weight">體重(公斤): </label>
+                    <input type="range" name="weight" id="weight" value="60" min="40" max="200" />
+                </div>
+                <a href="#" data-role="button" onclick="bmi();" data-inline="true" data-mini="true">計算
+                </a>
+            </form>
+
+        </main>
+        <footer data-role="footer" data-id="main" data-position="fixed">
+
+        </footer>
+    </div>
+
+</body>
+
+</html>
