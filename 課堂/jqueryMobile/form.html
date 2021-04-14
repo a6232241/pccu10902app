@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>主頁</title>
+    <link rel="stylesheet" href="./assets/css/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="./assets/themes/mcDonald.min.css" />
+    <link rel="stylesheet" href="./assets/themes/jquery.mobile.icons.min.css" />
+    <script src="./assets/js/jquery-2.1.4.min.js"></script>
+    <script src="./assets/js/jquery.mobile-1.4.5.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- 主頁 -->
+    <div data-role="page" id="home">
+        <header data-role="header">
+            <h1>餐點計算機</h1>
+        </header>
+        <main data-role="main" class="ui-content">
+            <form id="foodForm">
+                <div class="ui-field-contain">
+
+                    <div style="display: flex;">
+                        <div style="flex: 2;">
+                            <div style="width: 60px;">
+                                <img src="./assets/img/food_a.jpg" width="100%" height="100%" />
+                            </div>
+                        </div>
+                        <div style="flex: 10;">
+                            <label for="food_a">漢堡 70元</label>
+                            <input type="range" id="food_a" value="0" min="0" max="20" step="1" data-theme="a" />
+                        </div>
+                    </div>
+
+                    <div style="display: flex;">
+                        <div style="flex: 2;">
+                            <div style="width: 60px">
+                                <img src="./assets/img/food_b.jpg" width="100%" height="100%" />
+                            </div>
+
+                        </div>
+                        <div style="flex: 10;">
+                            <label for="food_b">薯條 45元</label>
+                            <input type="range" id="food_b" value="0" min="0" max="20" step="1" data-theme="a" />
+                        </div>
+                    </div>
+
+                    <div style="display: flex;">
+                        <div style="flex: 2;">
+                            <div style="width: 60px">
+                                <img src="./assets/img/food_c.jpg" width="100%" />
+                            </div>
+                        </div>
+                        <div style="flex: 10;">
+                            <label for="food_c">可樂 35元</label>
+                            <input type="range" id="food_c" value="0" min="0" max="20" step="1" data-theme="a" />
+                        </div>
+                    </div>
+
+                    <label for="nine" style="width: 100%;">外帶打9折</label>
+                    <select id="nine" name="nine" data-role="flipswitch">
+                        <option>Off</option>
+                        <option selected>On</option>
+                    </select>
+                </div>
+
+                <div class="ui-field-contain">
+                    <label for="price">總價: </label>
+                    <input type="text" id="price" />
+                </div>
+
+            </form>
+
+        </main>
+    </div>
+
+    <script>
+
+        function compute() {
+            let discount = $('#food_a').val() * 70 + $('#food_b').val() * 45 + $('#food_c').val() * 35;
+
+            if ($('#nine').val() === "On") discount = Math.round(discount * 0.9);
+
+            $('#price').val(discount);
+        }
+
+        $(document).ready(function () {
+            compute();
+            $('#food_a').change(compute);
+            $('#food_b').change(compute);
+            $('#food_c').change(compute);
+            $('#nine').change(compute);
+        })
+
+    </script>
+
+</body>
+
+</html>
