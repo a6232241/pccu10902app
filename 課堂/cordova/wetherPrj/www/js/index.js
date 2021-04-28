@@ -1,6 +1,8 @@
-document.addEventListener('deviceready', onDeviceReady, false);
+$(function () {
+    document.addEventListener("deviceready", onDeviceReady, false);
+    onDeviceReady()
+});
 
-let weatherData = "";
 const checkConnection = () => {
     var networkState = navigator.connection.type;
     if (networkState === Connection.NONE) {
@@ -9,19 +11,28 @@ const checkConnection = () => {
     }
 }
 
-const updateWeather = () => {
-    var minTArray = weatherData[8].time;
-    var maxTArray = weatherData[12].time;
-    for (var i = 0; i < minTArray.length; i++) {
+const updateWeather = (data) => {
+    var minT = data[8];
+    var maxT = data[12];
+    let wx = data[10]
 
-        var startTime = weatherData[8].time[i].startTime;
-        var endTime = weatherData[8].time[i].endTime;
-        var li = $("<li>");
+    // 每隔 12hr 取得一份資料，共計 1周
+    for (var i = 0; i < minT.time.length; i++) {
+
+        var {
+            startTime
+        } = data[8].time[i];
+        var {
+            endTime
+        } = data[8].time[i];
+
+        var li = $('<li>');
         li.append($("<h1>").text(processTime(startTime, endTime)));
 
-        var minT = weatherData[8].time[i].elementValue[0].value;
-        var maxT = weatherData[12].time[i].elementValue[0].value
-        $("<span>").addClass("ui-li-count").text(minT + " ~ " + maxT).appendTo(li);
+        var minTvalue = minT.time[i].elementValue[0].value;
+        var maxTvalue = maxT.time[i].elementValue[0].value
+        $("<p>").text(`描述： ${wx.time[i].elementValue[0].value}`).appendTo(li);
+        $("<span>").addClass("ui-li-count").text(`${minTvalue}℃ ~ ${maxTvalue}℃`).appendTo(li);
 
         $("#weatherList").append(li);
     }
@@ -33,20 +44,19 @@ const processTime = function (startstr, endstr) {
     var idx2 = startstr.indexOf(' ');
 
     if (startstr.substr(idx2 + 1, 2) == "06") {
-        return startstr.substring(idx1 + 1, idx2) + " 白天";
+        return startstr.substring(idx1 + 1, idx2) + " 上午";
     } else if (startstr.substr(idx2 + 1, 2) == "18") {
-        return startstr.substring(idx1 + 1, idx2) + " 晚上";
+        return startstr.substring(idx1 + 1, idx2) + " 下午";
     } else {
         return "現在";
     }
 }
 
 function onDeviceReady() {
-    checkConnection();
+    // checkConnection();
     var url = "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-063?Authorization=rdec-key-123-45678-011121314";
     $.getJSON(url, function (response) {
-        weatherData = response.records.locations[0].location[2].weatherElement;
-        updateWeather();
-        console.log(response);
+        let weatherData = response.records.locations[0].location[2].weatherElement;
+        updateWeather(weatherData);
     })
 }
