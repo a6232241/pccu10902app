@@ -1,5 +1,5 @@
 $(function () {
-    document.addEventListener("deviceready", onDeviceReady, false);
+    // document.addEventListener("deviceready", onDeviceReady, false);
     onDeviceReady()
 });
 
@@ -44,16 +44,20 @@ const processTime = function (startstr, endstr) {
     var idx2 = startstr.indexOf(' ');
 
     if (startstr.substr(idx2 + 1, 2) == "06") {
-        return startstr.substring(idx1 + 1, idx2) + " 上午";
+        return startstr.substring(idx1 + 1, idx2).replace('-', '/') + " 上午";
     } else if (startstr.substr(idx2 + 1, 2) == "18") {
-        return startstr.substring(idx1 + 1, idx2) + " 下午";
+        return startstr.substring(idx1 + 1, idx2).replace('-', '/') + " 下午";
     } else {
         return "現在";
     }
 }
 
 function onDeviceReady() {
-    // checkConnection();
+    try {
+        checkConnection();
+    } catch (e) {
+        console.log(e)
+    }
     var url = "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-063?Authorization=rdec-key-123-45678-011121314";
     $.getJSON(url, function (response) {
         let weatherData = response.records.locations[0].location[2].weatherElement;
