@@ -1,13 +1,13 @@
 import React from 'react';
-import { View, FlatList, Text } from 'react-native';
+import { View, FlatList } from 'react-native';
 
 import MoiveElement from '../component/MoiveElement';
 
 export default function MovieContainer(props) {
-  let { data } = props;
+  let { data, lookWho } = props;
 
   const renderItem = ({ item }) => {
-    return <MoiveElement {...item} />;
+    return <MoiveElement {...item} lookWho={lookWho} />;
   };
 
   const showMovies = () => {
